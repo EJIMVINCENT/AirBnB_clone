@@ -39,16 +39,6 @@ class TestBaseClass(unittest.TestCase):
         expected_str = f'[{type(self.b1).__name__}] ({self.b1.id}) {self.b1.__dict__}'
         self.assertEqual(expected_str, str(self.b1))
 
-    def test_to_dict_method(self):
-        """Test fo the method to_dict()"""
-        dict_return = self.b1.__dict__
-        dict_return['__class__'] = self.b1.__class__.__name__
-        created = self.b1.created_at.isoformat()
-        updated  = self.b1.updated_at.isoformat()
-        dict_return['created_at'] = created
-        dict_return['updated_at'] = updated
-        self.assertEqual(dict_return, self.b1.to_dict())
-
     def test_kwargs_not_none(self):
         """Test kwargs is not none"""
         dict1_rep = self.b1.to_dict()

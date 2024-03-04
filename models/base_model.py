@@ -36,12 +36,6 @@ class BaseModel:
 
         obj_serialized = self.__dict__
         obj_serialized['__class__'] = self.__class__.__name__
-        print(type(self.created_at))
-        created = self.created_at.isoformat()
-        updated  = self.updated_at.isoformat()
-        obj_serialized['created_at'] = created 
-        obj_serialized['updated_at'] = updated
+        obj_serialized['created_at'] = self.created_at.isoformat()
+        obj_serialized['updated_at'] = self.updated_at.isoformat()
         return obj_serialized
-    
-b = BaseModel()
-print (b.to_dict())
