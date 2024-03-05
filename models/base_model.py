@@ -5,17 +5,24 @@
 from uuid import uuid4
 from datetime import datetime
 
+
 class BaseModel:
     """Parent class named Basemodel"""
 
     def __init__(self, *args, **kwargs):
-        """Basemodel class constructor method"""
+        """Basemodel class constructor method
+        Args:
+            *args ():
+            **kwargs ():
+        """
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'created_at':
-                    self.created_at = datetime.strptime(value,  '%Y-%m-%dT%H:%M:%S.%f')
+                    self.created_at = datetime.strptime(
+                        value, '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'updated_at':
-                    self.updated_at = datetime.strptime(value,  '%Y-%m-%dT%H:%M:%S.%f')
+                    self.updated_at = datetime.strptime(
+                        value,  '%Y-%m-%dT%H:%M:%S.%f')
                 elif key == 'id':
                     self.id = value
         else:
@@ -33,9 +40,11 @@ class BaseModel:
 
     def to_dict(self):
         """Method for basic serialization"""
-
+        created = self.created_at.isoformat()
+        updated = self.updated_at.isoformat()
         obj_serialized = self.__dict__
         obj_serialized['__class__'] = self.__class__.__name__
-        obj_serialized['created_at'] = self.created_at.isoformat()
-        obj_serialized['updated_at'] = self.updated_at.isoformat()
+        obj_serialized['created_at'] = created
+        obj_serialized['updated_at'] = updated
+
         return obj_serialized
