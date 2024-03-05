@@ -1,0 +1,15 @@
+{"id": "db5e408c-cad8-4061-bc22-d576ec5d2168", "created_at": "2024-03-05T08:26:25.290902", "updated_at": "2024-03-05T08:26:25.290916", "__class__": "BaseModel"}
+{"id": "4afedc82-bf76-4a95-9aad-95ed4eb93370", "created_at": "2024-03-05T08:26:25.290977", "updated_at": "2024-03-05T08:26:25.290982", "__class__": "BaseModel"}
+{"id": "b0091e88-4a8b-465f-a299-d692b444a99f", "created_at": "2024-03-05T08:26:25.291031", "updated_at": "2024-03-05T08:26:25.291036", "__class__": "BaseModel"}
+{"id": "8ccda46e-6f12-4948-a783-de1ca2e23c57", "created_at": "2024-03-05T08:26:25.291083", "updated_at": "2024-03-05T08:26:25.291087", "__class__": "BaseModel"}
+{"id": "6b3fdb78-cda0-4be1-9b46-c03627bbf978", "created_at": "2024-03-05T08:26:25.291133", "updated_at": "2024-03-05T08:26:25.291137", "__class__": "BaseModel"}
+{"id": "8c081a93-b04c-4e8c-9ac3-df46b7d4a20d", "created_at": "2024-03-05T08:26:25.291182", "updated_at": "2024-03-05T08:26:25.291187", "__class__": "BaseModel"}
+{"id": "ee5a6955-4662-4496-8579-e6b501d02771", "created_at": "2024-03-05T08:26:25.291232", "updated_at": "2024-03-05T08:26:25.291236", "__class__": "BaseModel"}
+{"id": "bcf851dd-0f83-498f-90e5-4e5ad7ca4cac", "created_at": "2024-03-05T08:26:25.291282", "updated_at": "2024-03-05T08:26:25.291286", "__class__": "BaseModel"}
+{"id": "ee90a557-5f42-4f2a-9662-f1c2fc5bddf2", "created_at": "2024-03-05T08:26:25.291329", "updated_at": "2024-03-05T08:26:25.291333", "__class__": "BaseModel"}
+{"id": "a9bae5c3-7545-4373-8482-a90241625855", "created_at": "2024-03-05T08:26:25.291375", "updated_at": "2024-03-05T08:26:25.291379", "__class__": "BaseModel"}
+{"id": "4c83c7de-c42f-42b3-bee7-3c19dbe9b044", "created_at": "2024-03-05T08:26:25.291432", "updated_at": "2024-03-05T08:26:25.291436", "__class__": "BaseModel"}
+{"id": "4d2a5a55-36b1-4a7d-ac15-924cdebda86b", "created_at": "2024-03-05T08:26:25.291490", "updated_at": "2024-03-05T08:26:25.291495", "__class__": "BaseModel"}
+{"id": "9381cf80-194b-4960-b1e7-adcd57f25ef8", "created_at": "2024-03-05T08:26:25.291537", "updated_at": "2024-03-05T08:26:25.291541", "__class__": "BaseModel"}
+{"id": "a1c62adb-8620-4b05-ae92-74155d4a52ee", "created_at": "2024-03-05T08:26:25.291585", "updated_at": "2024-03-05T08:26:25.291589", "__class__": "BaseModel"}
+{"id": "305682f3-83da-4823-b6e0-729d185965c5", "created_at": "2024-03-05T08:26:25.302185", "updated_at": "2024-03-05T08:26:25.302227", "name": "My_First_Model", "my_number": 89, "__class__": "BaseModel"}
