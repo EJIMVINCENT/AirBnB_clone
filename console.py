@@ -8,7 +8,7 @@ class HBNBCommand(cmd.Cmd):
     """Class that define a command interpreter for our program"""
     prompt = "(hbnb) "
 
-    classess = [BaseModel]
+    __classes = ['BaseModel']
 
     def do_quit(self, arg):
         """Quit command to exit the program"""
@@ -28,6 +28,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         arg1 = arg_list[0]
+        print(f'******{arg1}***')
+        print(HBNBCommand.__classes[0])
         if arg1 not in  HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
