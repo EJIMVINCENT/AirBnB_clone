@@ -1,0 +1,4 @@
+new(self, obj) = method that takes 1 argument 
+ obj ----------> An instance of an object (BaseModel)
+ key = f'{obj.__class__.__name__}.{obj.id}
+ FileStorage.__object[key] = obj

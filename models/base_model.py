@@ -49,5 +49,4 @@ class BaseModel:
         obj_serialized['__class__'] = self.__class__.__name__
         obj_serialized['created_at'] = created
         obj_serialized['updated_at'] = updated
-
         return obj_serialized
