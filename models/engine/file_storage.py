@@ -3,8 +3,12 @@
 
 from models.base_model import BaseModel
 import json
-from pathlib import Path
-
+from models.user import User
+from models.place import Place 
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.review import Review
 
 class FileStorage:
     """a class FileStorage that serializes instances to a JSON
@@ -39,7 +43,7 @@ class FileStorage:
                 for obj in f:
                     obj_dict = json.loads(obj)
                     class_obj = eval(obj_dict['__class__'])
-                    instance = class_obj(obj_dict)
+                    instance = class_obj(**obj_dict)
                     self.new(instance)
         except Exception:
             pass
