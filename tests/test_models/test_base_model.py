@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines unittests for models/base_model.py."""
+"""Defines unittests for models/base_model.py"""
 
 import unittest
 from models.base_model import BaseModel
@@ -43,7 +43,7 @@ class TestBaseModel(unittest.TestCase):
         dict_rep = self.b1.to_dict()
         self.assertIsInstance(dict_rep, dict)
         self.assertIn('__class__', dict_rep)
-        self.assertEqual(dict_rep['__class__'], self.__class__.__name__)
+        self.assertEqual(dict_rep['__class__'], self.b1.__class__.__name__)
         self.assertIn('created_at', dict_rep)
         self.assertIsInstance(dict_rep['created_at'], str)
         self.assertIn('updated_at', dict_rep)
