@@ -133,7 +133,6 @@ class HBNBCommand(cmd.Cmd):
         Update a class instance of a given id by adding or updating
         a given attribute key/value pair or dictionary."""
 
-
         argl = arg.split()
         objdict = storage.all()
 
@@ -193,6 +192,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def update_with_dict(self, class_name, id, dlist):
+        """do update with dictionaries"""
         for arg in dlist:
             arg = arg.strip('"\' ')
             args = arg.split(':')
@@ -203,10 +203,7 @@ class HBNBCommand(cmd.Cmd):
                 attr_value = args[1].strip('"\' ')
             line = f'{class_name} {id} {attr_name} {attr_value}'
             self.do_update(line)
-
-            
-
-
+          
     def default(self, arg):
         """Handles default commands"""
         args = arg.split(".")
@@ -255,15 +252,10 @@ class HBNBCommand(cmd.Cmd):
                         if args[i].endswith('}'):
                             self.update_with_dict(class_name, id, dict_list)
                             return
-                        i += 1
-                            
-
-                
+                        i += 1                
                 line = "{} {} {} {}".format(class_name, id, attr_name, attr_value)
                 line = line.replace('"', '').replace("'", '')
                 self.do_update(line)
-            
-
             else:
                 cmd.Cmd.default(self, arg)
         else:
