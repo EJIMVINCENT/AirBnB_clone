@@ -18,13 +18,11 @@ class BaseModel:
             **kwargs (dict): Variable keyword arguments.
         """
 
-        if not kwargs:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = datetime.now()
-            models.storage.new(self)
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = datetime.now()
 
-        else:
+        if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key != "__class__":
                     setattr(self, key, value)
@@ -38,6 +36,8 @@ class BaseModel:
                 self.updated_at = datetime.now()
             if kwargs.get("id", None) is None:
                 self.id = str(uuid4())
+        else:
+            models.storage.new(self)
  
     def __str__(self):
         """Returns class objects' visualization"""
