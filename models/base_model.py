@@ -6,7 +6,6 @@ from uuid import uuid4
 from datetime import datetime
 import models
 
-time_format = "%Y-%m-%dT%H:%M:%S.%f"
 
 class BaseModel:
     """Parent class named Basemodel"""
@@ -18,27 +17,19 @@ class BaseModel:
             **kwargs (dict): Variable keyword arguments.
         """
 
+        tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
-
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if len(kwargs) != 0:
-            for key, value in kwargs.items():
-                if key != "__class__":
-                    setattr(self, key, value)
-            if kwargs.get("created_at", None) and type(self.created_at) is str:
-                self.created_at = datetime.strptime(kwargs["created_at"], time_format)
-            else:
-                self.created_at = datetime.now()
-            if kwargs.get("updated_at", None) and type(self.updated_at) is str:
-                self.updated_at = datetime.strptime(kwargs["updated_at"], time_format)
-            else:
-                self.updated_at = datetime.now()
-            if kwargs.get("id", None) is None:
-                self.id = str(uuid4())
+            for k, v in kwargs.items():
+                if k == "created_at" or k == "updated_at":
+                    self.__dict__[k] = datetime.strptime(v, tform)
+                else:
+                    self.__dict__[k] = v
         else:
             models.storage.new(self)
- 
+
     def __str__(self):
         """Returns class objects' visualization"""
         return f'[{type(self).__name__}] ({self.id}) {self.__dict__}'
