@@ -57,7 +57,7 @@ class BaseModel:
             updated = self.updated_at
         else:
             updated = self.updated_at.isoformat()
-        obj_serialized = self.__dict__
+        obj_serialized = self.__dict__.copy()
         obj_serialized['__class__'] = self.__class__.__name__
         obj_serialized['created_at'] = created
         obj_serialized['updated_at'] = updated

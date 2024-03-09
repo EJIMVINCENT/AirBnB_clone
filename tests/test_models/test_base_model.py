@@ -44,6 +44,13 @@ class TestBaseModel(unittest.TestCase):
         with self.assertRaises(TypeError):
             new = BaseModel(**copy)
 
+    def test_save_update_at(self):
+        """ """
+        i = BaseModel()
+        i.save()
+        self.assertAlmostEqual(type(i.updated_at), datetime)
+        d = i.to_dict()
+        self.assertAlmostEqual(type(d['updated_at']), str)
 
     def test_default(self):
         """Testin default """
@@ -111,11 +118,6 @@ class TestBaseModel(unittest.TestCase):
         b3 = BaseModel(**dict_rep)
         self.assertEqual(dict_rep, b3.to_dict())
 
-        def test_kwargs_one(self):
-            """ """
-            n = {'Name': 'test'}
-            with self.assertRaises(KeyError):
-                new = self.value(**n)
 
     def test_kwargs_is_none(self):
         """Test when kwargs is None"""
