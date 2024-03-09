@@ -75,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
         if key in objects:
             print(objects[key])
         else:
-            print("** instance id missing **")           
+            print("** no instance found **")           
 
     def do_destory(self, arg):
         """Deletes an instance based on the class name and id"""
@@ -133,7 +133,8 @@ class HBNBCommand(cmd.Cmd):
         Update a class instance of a given id by adding or updating
         a given attribute key/value pair or dictionary."""
 
-        argl = arg.split(' ')
+
+        argl = arg.split()
         objdict = storage.all()
 
         if len(argl) == 0:
@@ -191,11 +192,31 @@ class HBNBCommand(cmd.Cmd):
         except NameError:
             print("** class doesn't exist **")
 
+    def update_with_dict(self, class_name, id, dlist):
+        for arg in dlist:
+            arg = arg.strip('"\' ')
+            args = arg.split(':')
+            attr_name, attr_value = None, None
+            if len(args) >= 1:
+                attr_name = args[0].strip('"\' ')
+            if len(args) >= 2:
+                attr_value = args[1].strip('"\' ')
+            line = f'{class_name} {id} {attr_name} {attr_value}'
+            self.do_update(line)
+
+            
+
+
     def default(self, arg):
         """Handles default commands"""
         args = arg.split(".")
         
-        class_name, command = args
+        try:
+            class_name, command = args
+        except Exception:
+            cmd.Cmd.default(self, arg)
+            return
+
         if len(args) >= 2:
             if command == "all()":
                 self.do_all(class_name)
@@ -208,6 +229,40 @@ class HBNBCommand(cmd.Cmd):
                 id = id.strip('"\'')
                 key = f'{class_name} {id}'
                 self.do_show(key)
+
+            elif command.startswith("destroy(") and command.endswith(")"):
+                id = command.split('(')[1].split(')')[0]
+                id = id.strip('"\'')
+                key = f'{class_name} {id}'
+                self.do_destory(key)
+            
+            elif command.startswith("update(") and command.endswith(")"):
+                args = command.split('(')[1].split(')')[0].split(',')
+                id, attr_name, attr_value = None, None, None
+                if len(args) >= 1:
+                    id = args[0].strip('"\' ')
+                if len(args) >= 2:
+                    attr_name = args[1].strip('"\' ')
+                if len(args) >= 3:
+                    attr_value = args[2].strip('"\' ')
+                dict_list = []
+                i = 1
+
+                if attr_name.startswith('{'):
+                    while args[i]:
+                        dict_list.append(args[i].strip().strip('{').strip('}'))
+                        
+                        if args[i].endswith('}'):
+                            self.update_with_dict(class_name, id, dict_list)
+                            return
+                        i += 1
+                            
+
+                
+                line = "{} {} {} {}".format(class_name, id, attr_name, attr_value)
+                line = line.replace('"', '').replace("'", '')
+                self.do_update(line)
+            
 
             else:
                 cmd.Cmd.default(self, arg)

@@ -21,5 +21,5 @@
 {"id": "781f6f4c-8f76-4ced-aad9-a306eba4ebb4", "created_at": "2024-03-07T22:28:37.806966", "updated_at": "2024-03-07T22:28:37.806970", "__class__": "User"}
 {"id": "ab4fb4b9-d8ff-4358-a332-745f1d3a5c0a", "created_at": "2024-03-07T22:28:37.807009", "updated_at": "2024-03-07T22:28:37.807013", "__class__": "BaseModel"}
 {"id": "1edcea9f-0eca-40bc-a1d6-ca9d8cf43fca", "created_at": "2024-03-07T22:28:37.807096", "updated_at": "2024-03-07T22:28:37.807100", "__class__": "User"}
-{"id": "9215e813-1056-4f5f-bf69-eaf0a0b529ed", "created_at": "2024-03-07T22:30:17.069629", "updated_at": "2024-03-07T22:30:17.069660", "__class__": "User"}
- 
+{"id": "6a1067f3-3723-467a-b8f5-944287668e13", "created_at": "2024-03-08T06:46:44.269907", "updated_at": "2024-03-08T07:46:44.269976", "first_name": "John", "__class__": "User", "age": "10000000"}
+{"id": "f92ff0dd-8c0f-47ff-b338-8fe2aeb4d0eb", "created_at": "2024-03-08T16:20:31.079694", "updated_at": "2024-03-08T17:20:31.079741", "age": "98", "first_name": "Onyedikachi", "__class__": "BaseModel"}
