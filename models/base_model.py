@@ -20,9 +20,7 @@ class BaseModel:
         time = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.now()
-        self.updated_at = self.created_at
-
-
+        self.updated_at = datetime.now()
         if kwargs:
             for key, value in kwargs.items():
                 if key != "__class__":
@@ -59,7 +57,7 @@ class BaseModel:
             updated = self.updated_at
         else:
             updated = self.updated_at.isoformat()
-        obj_serialized = self.__dict__
+        obj_serialized = self.__dict__.copy()
         obj_serialized['__class__'] = self.__class__.__name__
         obj_serialized['created_at'] = created
         obj_serialized['updated_at'] = updated
