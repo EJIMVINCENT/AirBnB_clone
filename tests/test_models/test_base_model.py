@@ -151,6 +151,14 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsInstance(b5.created_at, datetime)
         self.assertIsInstance(b5.updated_at, datetime)
 
+    def test_updated_at(self):
+        """test update """
+        new = self.value()
+        self.assertEqual(type(new.updated_at), datetime)
+        n = new.to_dict()
+        new = BaseModel(**n)
+        self.assertFalse(new.created_at == new.updated_at)
+
 
 if __name__ == '__main__':
     unittest.main()
