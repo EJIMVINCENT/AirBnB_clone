@@ -39,9 +39,7 @@ class BaseModel:
             if kwargs.get("id", None) is None:
                 self.id = str(uuid4())
  
-    def __str__(self):
-        """Returns class objects' visualization"""
-        return f'[{type(self).__name__}] ({self.id}) {self.__dict__}'
+
 
     def save(self):
         """Updates the updated_at attribute"""
