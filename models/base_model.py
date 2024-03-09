@@ -48,18 +48,3 @@ class BaseModel:
         self.updated_at = datetime.now()
         models.storage.save()
 
-    def to_dict(self):
-        """Method for basic serialization"""
-        if isinstance(self.created_at, str):
-            created = self.created_at
-        else:
-            created = self.created_at.isoformat()
-        if isinstance(self.updated_at, str):
-            updated = self.updated_at
-        else:
-            updated = self.updated_at.isoformat()
-        obj_serialized = self.__dict__
-        obj_serialized['__class__'] = self.__class__.__name__
-        obj_serialized['created_at'] = created
-        obj_serialized['updated_at'] = updated
-        return obj_serialized
