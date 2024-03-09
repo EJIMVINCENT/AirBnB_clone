@@ -18,6 +18,10 @@ class BaseModel:
         """
 
         time = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
+
 
         if kwargs:
             for key, value in kwargs.items():
@@ -34,10 +38,6 @@ class BaseModel:
             if kwargs.get("id", None) is None:
                 self.id = str(uuid4())
         else:
-            self.id = str(uuid4())
-            self.created_at = datetime.now()
-            self.updated_at = self.created_at
-
             models.storage.new(self)
  
     def __str__(self):
