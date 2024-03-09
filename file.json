@@ -24,3 +24,4 @@
 {"id": "6a1067f3-3723-467a-b8f5-944287668e13", "created_at": "2024-03-08T06:46:44.269907", "updated_at": "2024-03-08T07:46:44.269976", "first_name": "John", "age": "10000000", "__class__": "User"}
 {"id": "f92ff0dd-8c0f-47ff-b338-8fe2aeb4d0eb", "created_at": "2024-03-08T16:20:31.079694", "updated_at": "2024-03-08T17:20:31.079741", "age": "98", "first_name": "Onyedikachi", "__class__": "BaseModel"}
 {"id": "56e23989-7723-4024-bdc5-662d78fc656d", "created_at": "2024-03-09T15:32:20.719689", "updated_at": "2024-03-09T16:32:20.720903", "name": "My First Model", "my_number": 89, "__class__": "BaseModel"}
+{"id": "ef3a3fe6-4c04-46b8-b926-81b8fbbacf76", "created_at": "2024-03-09T16:48:18.733197", "updated_at": "2024-03-09T16:48:18.734289", "name": "My First Model", "my_number": 89, "__class__": "BaseModel"}
