@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defines unittests for models/base_model.py"""
 
+import os
 import unittest
 from models.base_model import BaseModel
 from datetime import datetime
@@ -8,11 +9,26 @@ from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
     """Test cases for the BaseModel class"""
-
+    def __init__(self, *args, **kwargs):
+        """ initallizes the tests"""
+        super().__init__(*args, **kwargs)
+        self.name = 'BaseModel'
+        self.value = BaseModel
+    
     def setUp(self):
         """Create instances for test methods"""
         self.b1 = BaseModel()
         self.b2 = BaseModel()
+
+    def tearDown(self):
+        """perform cleanup
+        operations after each test method"""
+        try:
+            os.remove('file.json')
+        except Exception:
+            pass
+    
+
 
     def test_id_is_str(self):
         """Test if id is a string object"""
