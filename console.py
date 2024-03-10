@@ -16,10 +16,10 @@ class HBNBCommand(cmd.Cmd):
     """Class that define a command interpreter for our program"""
     prompt = "(hbnb) "
 
-    __classes = [
+    __classes = {
                 'BaseModel', 'User', 'Place',
                 'State', 'City', 'Amenity', 'Review'
-                ]
+    }
 
     def emptyline(self):
         """Ignore empty spaces."""
@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
         my_list = line.split(" ")
         my_list[0] = my_list[0].strip(" ")
 
-        if my_list[0] not in self.__classes:
+        if my_list[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         if len(my_list) < 2:
@@ -184,7 +184,7 @@ class HBNBCommand(cmd.Cmd):
         """count the number of instances of a class"""
         counter = 0
         try:
-            if arg not in self.__classes:
+            if arg not in HBNBCommand.__classes:
                 raise NameError()
             objects = storage.all()
             for key in objects:
