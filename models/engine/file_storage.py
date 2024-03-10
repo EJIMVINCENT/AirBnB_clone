@@ -4,11 +4,12 @@
 from models.base_model import BaseModel
 import json
 from models.user import User
-from models.place import Place 
+from models.place import Place
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
 from models.review import Review
+
 
 class FileStorage:
     """a class FileStorage that serializes instances to a JSON
@@ -37,7 +38,7 @@ class FileStorage:
 
     def reload(self):
         """deserializes the JSON file to __objects"""
-    
+
         try:
             with open(FileStorage.__file_path, 'r') as f:
                 for obj in f:
