@@ -2,6 +2,18 @@
 
 AirBnB clone built using the Python language and Flask framework, it's a team project aim to clone [AirBnB](https://https://www.airbnb.com/)
 
+## Resources
+
+**Read or watch:**
+
+* cmd module
+* packages concept page
+* uuid module
+* datetime
+* unittest module
+* args/kwargs
+* Python test cheatsheet
+
 ## The Console
 The console is a command interpreter to manage objects abstraction between objects and how they are stored. This means: from the console code (the command interpreter itself) and from the front-end and RestAPI are built.
 
@@ -94,7 +106,7 @@ git clone https://github.com/EJIMVINCENT/AirBnB_clone.git
 > $
 
 ### Data Diagram
-[![Data diagram](/pictures/ALX/diagram.jpg)]
+[![Data diagram](/https://camo.githubusercontent.com/f214d0102e583bf74caae88a5e3de8d24358baec288a25301a7a2b7a038965d9/68747470733a2f2f692e696d6775722e636f6d2f49375655524e522e6a7067)]
 
 ### Authors
 
