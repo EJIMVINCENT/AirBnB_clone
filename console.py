@@ -21,13 +21,17 @@ class HBNBCommand(cmd.Cmd):
                 'State', 'City', 'Amenity', 'Review'
                 ]
 
+    def emptyline(self):
+        """Ignore empty spaces."""
+        pass
+
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
 
     def do_EOF(self, arg):
         """Handle EOF (Ctrl+D)"""
-        print()
+        print("")
         return True
 
     def do_create(self, arg):
