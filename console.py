@@ -5,7 +5,7 @@ import cmd
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
-from models.place import Place 
+from models.place import Place
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
     def do_quit(self, arg):
         """Quit command to exit the program"""
         return True
-    
+
     def do_EOF(self, arg):
         """Handle EOF (Ctrl+D)"""
         return True
@@ -39,7 +39,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
         arg1 = arg_list[0]
-        if arg1 not in  HBNBCommand.__classes:
+        if arg1 not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         newBase = eval(arg1)()
@@ -75,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
         if key in objects:
             print(objects[key])
         else:
-            print("** no instance found **")           
+            print("** no instance found **")
 
     def do_destory(self, arg):
         """Deletes an instance based on the class name and id"""
@@ -86,7 +86,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        elif arg_list[0] not in  HBNBCommand.__classes:
+        elif arg_list[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
 
@@ -102,7 +102,7 @@ class HBNBCommand(cmd.Cmd):
             objs = storage.all()
             del objs[name_id]
             storage.save()
-    
+
     def do_all(self, arg):
         """Prints all string representation of
         all instances based or not on the class name"""
@@ -124,7 +124,6 @@ class HBNBCommand(cmd.Cmd):
                 print(output)
         else:
             print("** class doesn't exist **")
-
 
     def do_update(self, arg):
         """Usage: update <class> <id> <attribute_name> <attribute_value> or
@@ -203,11 +202,11 @@ class HBNBCommand(cmd.Cmd):
                 attr_value = args[1].strip('"\' ')
             line = f'{class_name} {id} {attr_name} {attr_value}'
             self.do_update(line)
-          
+
     def default(self, arg):
         """Handles default commands"""
         args = arg.split(".")
-        
+
         try:
             class_name, command = args
         except Exception:
@@ -219,8 +218,7 @@ class HBNBCommand(cmd.Cmd):
                 self.do_all(class_name)
 
             elif command == "count()":
-                 self.count(class_name)
-
+                self.count(class_name)
             elif command.startswith("show(") and command.endswith(")"):
                 id = command.split('(')[1].split(')')[0]
                 id = id.strip('"\'')
@@ -232,7 +230,7 @@ class HBNBCommand(cmd.Cmd):
                 id = id.strip('"\'')
                 key = f'{class_name} {id}'
                 self.do_destory(key)
-            
+
             elif command.startswith("update(") and command.endswith(")"):
                 args = command.split('(')[1].split(')')[0].split(',')
                 id, attr_name, attr_value = None, None, None
@@ -248,19 +246,19 @@ class HBNBCommand(cmd.Cmd):
                 if attr_name.startswith('{'):
                     while args[i]:
                         dict_list.append(args[i].strip().strip('{').strip('}'))
-                        
+
                         if args[i].endswith('}'):
                             self.update_with_dict(class_name, id, dict_list)
                             return
-                        i += 1                
-                line = "{} {} {} {}".format(class_name, id, attr_name, attr_value)
+                        i += 1
+                line = f"{class_name} {id} {attr_name} {attr_value}"
                 line = line.replace('"', '').replace("'", '')
                 self.do_update(line)
             else:
                 cmd.Cmd.default(self, arg)
         else:
             cmd.Cmd.default(self, arg)
-        
+
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()   
+    HBNBCommand().cmdloop()
