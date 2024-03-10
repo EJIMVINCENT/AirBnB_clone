@@ -71,7 +71,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
         if len(my_list) < 2:
-            print("** no instance found **")
+            print("** instance id missing **")
             return
 
         my_list[1] = my_list[1].strip(" ")
