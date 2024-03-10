@@ -106,7 +106,7 @@ git clone https://github.com/EJIMVINCENT/AirBnB_clone.git
 > $
 
 ### Data Diagram
-[![Data diagram](/https://camo.githubusercontent.com/f214d0102e583bf74caae88a5e3de8d24358baec288a25301a7a2b7a038965d9/68747470733a2f2f692e696d6775722e636f6d2f49375655524e522e6a7067)]
+![Data diagram](pc/pictures/ALX/diagram)
 
 ### Authors
 
