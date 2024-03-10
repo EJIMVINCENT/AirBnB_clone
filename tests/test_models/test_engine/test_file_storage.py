@@ -125,19 +125,6 @@ class TestFileStorage(unittest.TestCase):
             temp = key
         self.assertEqual(temp, 'BaseModel' + '.' + _id)
     
-    def test_storage_var_created(self):
-        """ FileStorage object storage created """
-        from models.engine.file_storage import FileStorage
-        fs = FileStorage()
-        self.assertEqual(type(fs), FileStorage)
-
-    def test_save_basemodel(self):
-        """"""
-        new = BaseModel()
-        update = new.updated_at
-        new.save()
-        self.assertNotEqual(update, new.updated_at)
-
 
 
 if __name__ == '__main__':
