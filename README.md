@@ -17,7 +17,7 @@ AirBnB clone built using the Python language and Flask framework, it's a team pr
 ## The Console
 The console is a command interpreter to manage objects abstraction between objects and how they are stored. This means: from the console code (the command interpreter itself) and from the front-end and RestAPI are built.
 
-**The console will perform the following tasks:**
+**Quick Start:**
 
 - create your data model
 - manage (create, update, destroy, etc) objects via a console / command interpreter
