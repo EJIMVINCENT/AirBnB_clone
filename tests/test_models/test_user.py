@@ -3,8 +3,6 @@
 
 import unittest
 from models.user import User
-from models.base_model import BaseModel
-from tests.test_models import test_base_model
 
 
 class TestUserClass(unittest.TestCase):
@@ -13,7 +11,6 @@ class TestUserClass(unittest.TestCase):
     def setUp(self):
         """Setup method for all class"""
         self.user1 = User()
-        self.BaseModel1 = BaseModel()
 
     def test_all_attribute(self):
         """testing all attributes"""
@@ -25,4 +22,3 @@ class TestUserClass(unittest.TestCase):
         self.assertTrue(self.user1.first_name == "")
         self.assertTrue(hasattr(User, 'password'))
         self.assertTrue(self.user1.password == "")
-        
