@@ -124,6 +124,31 @@ class TestFileStorage(unittest.TestCase):
         for key in storage.all().keys():
             temp = key
         self.assertEqual(temp, 'BaseModel' + '.' + _id)
+        fs = FileStorage()
+        file_path = FileStorage._FileStorage__file_path
+        try:
+            os.remove(file_path)
+            fs.__FileStorage.__objects.clear()
+        except Exception:
+            pass
+        ids = []
+        objs_by_id = {}
+        for i in range(10):
+            b = BaseModel()
+            fs.new(b)
+            ids.append(b.id)
+            objs_by_id[b.id] = b
+
+        try:
+            fs._FileStorage.__objects.clear()
+        except Exception:
+            pass
+
+        fs.reload()
+        all_items = fs.all()
+
+        self.assertTrue(len(all_items.keys()), len(ids))
+    
     
 
 
