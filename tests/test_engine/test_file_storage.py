@@ -129,7 +129,7 @@ class TestFileStorage(unittest.TestCase):
         """ FileStorage object storage created """
         from models.engine.file_storage import FileStorage
         fs = FileStorage()
-        self.assertIsInstance(fs, FileStorage)
+        self.assertEqual(type(fs), FileStorage)
     
 
    
