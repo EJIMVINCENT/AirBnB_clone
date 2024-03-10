@@ -50,10 +50,10 @@ And the process of deserialization?
 - *kwargs is a dictionary that contains all arguments by key/value
 
 ### Installation/Cloning
-> git clone https://github.com/EJIMVINCENT/AirBnB_clone.git
+' git clone https://github.com/EJIMVINCENT/AirBnB_clone.git '
 
 **change to the AirBnb directory and run the command:**
- > ./console.py
+' ./console.py '
 
 #### Execution
 
@@ -64,22 +64,22 @@ And the process of deserialization?
 
 > Documented commands (type help <topic>):
 ========================================
->> EOF  help  quit
+> EOF  help  quit
 
-(hbnb)
-(hbnb)
-(hbnb) quit
+> (hbnb)
+> (hbnb)
+> (hbnb) quit
 > $
 
 **in Non-interactive mode**
 
 > $ echo "help" | ./console.py
-(hbnb)
+> (hbnb)
 
 > Documented commands (type help <topic>):
 ========================================
 > EOF  help  quit
->> (hbnb)
+>(hbnb)
 > $
 > $ cat test_help
 > help
@@ -99,4 +99,5 @@ And the process of deserialization?
 **Authors**
 
 [Chiamaka Emeti](https://github.com/chiamablessing)
+
 [Ejim Onyedikachi Vincent](https://github.com/EJIMVINCENT)
