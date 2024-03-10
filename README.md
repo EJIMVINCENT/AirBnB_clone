@@ -113,6 +113,71 @@ git clone https://github.com/EJIMVINCENT/AirBnB_clone.git
 * [Chiamaka Emeti](https://github.com/chiamablessing)
 
 <<<<<<< HEAD
+* [Ejim Onyedikachi Vincent](https://github.com/EJIMVINCENT)a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+=======
+<<<<<<< HEAD
 * [Ejim Onyedikachi Vincent](https://github.com/EJIMVINCENT)
 =======
 * [Ejim Onyedikachi Vincent](https://github.com/EJIMVINCENT)
+>>>>>>> 618a665e428cc23837a8a0b3be4323b94fa4f68b
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
+a\n
