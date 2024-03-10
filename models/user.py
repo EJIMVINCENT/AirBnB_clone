@@ -1,14 +1,18 @@
 #!/usr/bin/python3
-"""a class User that inherits from BaseModel"""
-
-from models.base_model import BaseModel
+""" holds class User"""
 import models
+from models.base_model import BaseModel, Base
+from os import getenv
 
 
 class User(BaseModel):
-    """Defines attributes a user has"""
-
+    """Representation of a user """
+ 
     email = ""
     password = ""
     first_name = ""
     last_name = ""
+
+    def __init__(self, *args, **kwargs):
+        """initializes user"""
+        super().__init__(*args, **kwargs)
