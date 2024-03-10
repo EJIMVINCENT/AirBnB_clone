@@ -10,9 +10,9 @@ class TestStateClass(unittest.TestCase):
 
     def setUp(self):
         """Setup method for all class"""
-        self.State1 =State()
+        self.State1 = State()
 
     def test_all_attribute(self):
         """testing all attributes"""
-        self.assertTrue(hasattr(State, 'name'))
+        self.assertTrue(hasattr(State, "name"))
         self.assertTrue(self.State1.name == "")

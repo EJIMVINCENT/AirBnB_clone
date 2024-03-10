@@ -14,9 +14,9 @@ class TestReviewClass(unittest.TestCase):
 
     def test_all_attribute(self):
         """testing all Review attributes"""
-        self.assertTrue(hasattr(Review, 'place_id'))
+        self.assertTrue(hasattr(Review, "place_id"))
         self.assertTrue(self.Review1.place_id == "")
-        self.assertTrue(hasattr(Review, 'user_id'))
+        self.assertTrue(hasattr(Review, "user_id"))
         self.assertTrue(self.Review1.user_id == "")
-        self.assertTrue(hasattr(Review, 'text'))
+        self.assertTrue(hasattr(Review, "text"))
         self.assertTrue(self.Review1.text == "")

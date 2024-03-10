@@ -9,7 +9,7 @@ import models
 
 class BaseModel:
     """Parent class named Basemodel"""
- 
+
     def __init__(self, *args, **kwargs):
         """Basemodel class constructor method
         Args:
@@ -37,10 +37,10 @@ class BaseModel:
                 self.id = str(uuid4())
         else:
             models.storage.new(self)
- 
+
     def __str__(self):
         """Returns class objects' visualization"""
-        return f'[{type(self).__name__}] ({self.id}) {self.__dict__}'
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
         """Updates the updated_at attribute"""
@@ -58,7 +58,7 @@ class BaseModel:
         else:
             updated = self.updated_at.isoformat()
         obj_serialized = self.__dict__.copy()
-        obj_serialized['__class__'] = self.__class__.__name__
-        obj_serialized['created_at'] = created
-        obj_serialized['updated_at'] = updated
+        obj_serialized["__class__"] = self.__class__.__name__
+        obj_serialized["created_at"] = created
+        obj_serialized["updated_at"] = updated
         return obj_serialized

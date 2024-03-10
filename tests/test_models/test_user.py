@@ -14,11 +14,11 @@ class TestUserClass(unittest.TestCase):
 
     def test_all_attribute(self):
         """testing all attributes"""
-        self.assertTrue(hasattr(User, 'email'))
+        self.assertTrue(hasattr(User, "email"))
         self.assertTrue(self.user1.email == "")
-        self.assertTrue(hasattr(User, 'last_name'))
+        self.assertTrue(hasattr(User, "last_name"))
         self.assertTrue(self.user1.last_name == "")
-        self.assertTrue(hasattr(User, 'first_name'))
+        self.assertTrue(hasattr(User, "first_name"))
         self.assertTrue(self.user1.first_name == "")
-        self.assertTrue(hasattr(User, 'password'))
+        self.assertTrue(hasattr(User, "password"))
         self.assertTrue(self.user1.password == "")

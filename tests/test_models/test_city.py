@@ -14,7 +14,7 @@ class TestCityClass(unittest.TestCase):
 
     def test_all_attribute(self):
         """testing all attributes"""
-        self.assertTrue(hasattr(City, 'state_id'))
+        self.assertTrue(hasattr(City, "state_id"))
         self.assertTrue(self.City1.state_id == "")
-        self.assertTrue(hasattr(City, 'name'))
+        self.assertTrue(hasattr(City, "name"))
         self.assertTrue(self.City1.name == "")

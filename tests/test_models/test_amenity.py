@@ -14,6 +14,5 @@ class TestAmenityClass(unittest.TestCase):
 
     def test_all_attribute(self):
         """testing all attributes"""
-        self.assertTrue(hasattr(Amenity, 'name'))
+        self.assertTrue(hasattr(Amenity, "name"))
         self.assertTrue(self.Amenity1.name == "")
-
