@@ -234,7 +234,7 @@ class HBNBCommand(cmd.Cmd):
                 id = command.split("(")[1].split(")")[0]
                 id = id.strip("\"'")
                 key = f"{class_name} {id}"
-                self.do_destory(key)
+                self.do_destroy(key)
 
             elif command.startswith("update(") and command.endswith(")"):
                 args = command.split("(")[1].split(")")[0].split(",")
