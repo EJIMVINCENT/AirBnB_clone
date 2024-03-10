@@ -27,6 +27,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, arg):
         """Handle EOF (Ctrl+D)"""
+        print()
         return True
 
     def do_create(self, arg):
