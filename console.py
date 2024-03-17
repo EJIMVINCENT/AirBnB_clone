@@ -14,12 +14,11 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """Class that define a command interpreter for our program"""
+
     prompt = "(hbnb) "
 
-    __classes = [
-                'BaseModel', 'User', 'Place',
-                'State', 'City', 'Amenity', 'Review'
-                ]
+    __classes = {"BaseModel", "User", "Place",
+                 "State", "City", "Amenity", "Review"}
 
     def emptyline(self):
         """Ignore empty spaces."""
@@ -67,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         my_list = line.split(" ")
         my_list[0] = my_list[0].strip(" ")
 
-        if my_list[0] not in self.__classes:
+        if my_list[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
             return
         if len(my_list) < 2:
@@ -76,7 +75,7 @@ class HBNBCommand(cmd.Cmd):
 
         my_list[1] = my_list[1].strip(" ")
         objects = storage.all()
-        key = my_list[0] + '.' + my_list[1]
+        key = my_list[0] + "." + my_list[1]
         if key in objects:
             print(objects[key])
         else:
@@ -99,11 +98,11 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
             return
 
-        elif f'{arg_list[0]}.{arg_list[1]}' not in storage.all():
+        elif f"{arg_list[0]}.{arg_list[1]}" not in storage.all():
             print("** no instance found **")
 
         else:
-            name_id = f'{arg_list[0]}.{arg_list[1]}'
+            name_id = f"{arg_list[0]}.{arg_list[1]}"
             objs = storage.all()
             del objs[name_id]
             storage.save()
@@ -117,12 +116,12 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             for key, value in objs.items():
                 output.append(str(value))
-            if (output):
+            if output:
                 print(output)
 
         elif arg in HBNBCommand.__classes:
             for key, value in objs.items():
-                class_name, id = key.split('.')
+                class_name, id = key.split(".")
                 if class_name == arg:
                     output.append(str(value))
             if output:
@@ -172,8 +171,9 @@ class HBNBCommand(cmd.Cmd):
         elif type(eval(argl[2])) == dict:
             obj = objdict["{}.{}".format(argl[0], argl[1])]
             for k, v in eval(argl[2]).items():
-                if (k in obj.__class__.__dict__.keys() and
-                        type(obj.__class__.__dict__[k]) in {str, int, float}):
+                if k in obj.__class__.__dict__.keys() and type(
+                    obj.__class__.__dict__[k]
+                ) in {str, int, float}:
                     valtype = type(obj.__class__.__dict__[k])
                     obj.__dict__[k] = valtype(v)
                 else:
@@ -184,11 +184,11 @@ class HBNBCommand(cmd.Cmd):
         """count the number of instances of a class"""
         counter = 0
         try:
-            if arg not in self.__classes:
+            if arg not in HBNBCommand.__classes:
                 raise NameError()
             objects = storage.all()
             for key in objects:
-                name = key.split('.')
+                name = key.split(".")
                 if name[0] == arg:
                     counter += 1
             print(counter)
@@ -198,14 +198,14 @@ class HBNBCommand(cmd.Cmd):
     def update_with_dict(self, class_name, id, dlist):
         """do update with dictionaries"""
         for arg in dlist:
-            arg = arg.strip('"\' ')
-            args = arg.split(':')
+            arg = arg.strip("\"' ")
+            args = arg.split(":")
             attr_name, attr_value = None, None
             if len(args) >= 1:
-                attr_name = args[0].strip('"\' ')
+                attr_name = args[0].strip("\"' ")
             if len(args) >= 2:
-                attr_value = args[1].strip('"\' ')
-            line = f'{class_name} {id} {attr_name} {attr_value}'
+                attr_value = args[1].strip("\"' ")
+            line = f"{class_name} {id} {attr_name} {attr_value}"
             self.do_update(line)
 
     def default(self, arg):
@@ -225,39 +225,39 @@ class HBNBCommand(cmd.Cmd):
             elif command == "count()":
                 self.count(class_name)
             elif command.startswith("show(") and command.endswith(")"):
-                id = command.split('(')[1].split(')')[0]
-                id = id.strip('"\'')
-                key = f'{class_name} {id}'
+                id = command.split("(")[1].split(")")[0]
+                id = id.strip("\"'")
+                key = f"{class_name} {id}"
                 self.do_show(key)
 
             elif command.startswith("destroy(") and command.endswith(")"):
-                id = command.split('(')[1].split(')')[0]
-                id = id.strip('"\'')
-                key = f'{class_name} {id}'
-                self.do_destory(key)
+                id = command.split("(")[1].split(")")[0]
+                id = id.strip("\"'")
+                key = f"{class_name} {id}"
+                self.do_destroy(key)
 
             elif command.startswith("update(") and command.endswith(")"):
-                args = command.split('(')[1].split(')')[0].split(',')
+                args = command.split("(")[1].split(")")[0].split(",")
                 id, attr_name, attr_value = None, None, None
                 if len(args) >= 1:
-                    id = args[0].strip('"\' ')
+                    id = args[0].strip("\"' ")
                 if len(args) >= 2:
-                    attr_name = args[1].strip('"\' ')
+                    attr_name = args[1].strip("\"' ")
                 if len(args) >= 3:
-                    attr_value = args[2].strip('"\' ')
+                    attr_value = args[2].strip("\"' ")
                 dict_list = []
                 i = 1
 
-                if attr_name.startswith('{'):
+                if attr_name.startswith("{"):
                     while args[i]:
-                        dict_list.append(args[i].strip().strip('{').strip('}'))
+                        dict_list.append(args[i].strip().strip("{").strip("}"))
 
-                        if args[i].endswith('}'):
+                        if args[i].endswith("}"):
                             self.update_with_dict(class_name, id, dict_list)
                             return
                         i += 1
                 line = f"{class_name} {id} {attr_name} {attr_value}"
-                line = line.replace('"', '').replace("'", '')
+                line = line.replace('"', "").replace("'", "")
                 self.do_update(line)
             else:
                 cmd.Cmd.default(self, arg)
@@ -265,5 +265,5 @@ class HBNBCommand(cmd.Cmd):
             cmd.Cmd.default(self, arg)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     HBNBCommand().cmdloop()

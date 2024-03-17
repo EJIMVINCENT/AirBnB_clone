@@ -10,12 +10,13 @@ from datetime import datetime
 
 class TestBaseModel(unittest.TestCase):
     """Test cases for the BaseModel class"""
+
     def __init__(self, *args, **kwargs):
         """ initallizes the tests"""
         super().__init__(*args, **kwargs)
-        self.name = 'BaseModel'
+        self.name = "BaseModel"
         self.value = BaseModel
-    
+
     def setUp(self):
         """Create instances for test methods"""
         self.b1 = BaseModel()
@@ -25,10 +26,10 @@ class TestBaseModel(unittest.TestCase):
         """perform cleanup
         operations after each test method"""
         try:
-            os.remove('file.json')
+            os.remove("file.json")
         except Exception:
             pass
-    
+
     def test_kwargs(self):
         """ """
         i = self.value()
@@ -50,7 +51,7 @@ class TestBaseModel(unittest.TestCase):
         i.save()
         self.assertAlmostEqual(type(i.updated_at), datetime)
         d = i.to_dict()
-        self.assertAlmostEqual(type(d['updated_at']), str)
+        self.assertAlmostEqual(type(d["updated_at"]), str)
 
     def test_default(self):
         """Testin default """
@@ -82,29 +83,29 @@ class TestBaseModel(unittest.TestCase):
         i.save()
         key = self.name + "." + i.id
         j = {}
-        with open('file.json', 'r') as f:
+        with open("file.json", "r") as f:
             for line in f:
                 c = json.loads(line)
-                k = self.name + '.' + c['id']
+                k = self.name + "." + c["id"]
                 if k == key:
                     self.assertEqual(c, i.to_dict())
                     break
 
     def test_str_method(self):
         """Test the __str__ method"""
-        expected_str = f'[BaseModel] ({self.b1.id}) {self.b1.__dict__}'
+        expected_str = f"[BaseModel] ({self.b1.id}) {self.b1.__dict__}"
         self.assertEqual(expected_str, str(self.b1))
 
     def test_to_dict_method(self):
         """Test the to_dict method"""
         dict_rep = self.b1.to_dict()
         self.assertIsInstance(dict_rep, dict)
-        self.assertIn('__class__', dict_rep)
-        self.assertEqual(dict_rep['__class__'], self.b1.__class__.__name__)
-        self.assertIn('created_at', dict_rep)
-        self.assertIsInstance(dict_rep['created_at'], str)
-        self.assertIn('updated_at', dict_rep)
-        self.assertIsInstance(dict_rep['updated_at'], str)
+        self.assertIn("__class__", dict_rep)
+        self.assertEqual(dict_rep["__class__"], self.b1.__class__.__name__)
+        self.assertIn("created_at", dict_rep)
+        self.assertIsInstance(dict_rep["created_at"], str)
+        self.assertIn("updated_at", dict_rep)
+        self.assertIsInstance(dict_rep["updated_at"], str)
 
     def test_to_dict2(self):
         """Test the to_dict method"""
@@ -118,14 +119,13 @@ class TestBaseModel(unittest.TestCase):
         b3 = BaseModel(**dict_rep)
         self.assertEqual(dict_rep, b3.to_dict())
 
-
     def test_kwargs_is_none(self):
         """Test when kwargs is None"""
         b3 = BaseModel(None)
-        self.assertIn('id', b3.__dict__)
-        self.assertIn('created_at', b3.__dict__)
-        self.assertIn('updated_at', b3.__dict__)
-    
+        self.assertIn("id", b3.__dict__)
+        self.assertIn("created_at", b3.__dict__)
+        self.assertIn("updated_at", b3.__dict__)
+
     def test_kwargs_is_none2(self):
         """Test when kwargs is None"""
         n = {None: None}
@@ -136,13 +136,17 @@ class TestBaseModel(unittest.TestCase):
         """Test if __class__ was added as an attribute"""
         dict_rep = self.b1.to_dict()
         b3 = BaseModel(**dict_rep)
-        self.assertNotIn('__class__', b3.__dict__)
+        self.assertNotIn("__class__", b3.__dict__)
 
     # Additional tests for edge cases
     def test_init_with_kwargs(self):
         """Test initialization with kwargs"""
-        b4 = BaseModel(id='123', created_at='2024-03-04T08:13:37.502557', updated_at='2024-03-04T08:13:37.502557')
-        self.assertEqual(b4.id, '123')
+        b4 = BaseModel(
+            id="123",
+            created_at="2024-03-04T08:13:37.502557",
+            updated_at="2024-03-04T08:13:37.502557",
+        )
+        self.assertEqual(b4.id, "123")
         self.assertIsInstance(b4.created_at, datetime)
         self.assertIsInstance(b4.updated_at, datetime)
 
@@ -162,5 +166,5 @@ class TestBaseModel(unittest.TestCase):
         self.assertFalse(new.created_at == new.updated_at)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
